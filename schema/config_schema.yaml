@@ -1,0 +1,32 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+properties:
+  workdir:
+    type: string
+    minLength: 1
+
+  sample_name:
+    type: string
+    default: "sample"
+    minLength: 1
+
+  genome:
+    type: string
+    minLength: 1
+
+  CCS_bam:
+    type: string
+    default: ""
+
+  threads:
+    type: integer
+    default: 30
+
+
+required:
+  - workdir
+  - sample_name
+  - genome
+  - CCS_bam

@@ -1,0 +1,19 @@
+name: vector-analysis
+channels:
+ - conda-forge
+ - bioconda
+ - defaults
+ - r
+dependencies:
+ - snakemake==7.18.2
+ - python>3.6
+ - gzip==1.12
+ - pbtk==3.1
+ - minimap2==2.24
+ - samtools==1.15
+ - r-base==4.1.2
+ - pysam
+ - biopython
+ - r-tidyverse==2.0.0
+ - r-gridbase
+ - r-gridextra
