@@ -2,19 +2,19 @@
 ## For optional parameters either leave empty string ("") or comment out ("#") the parameter
 
 # working directory (required):
-workdir: "/home/JHEmilGustavsson/MinaRyten/Emil/Giando/"
+workdir: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/"
 
 # prefix of all output files:
 sample_name: "test"
 
 # reference genome as fasta (required)
-genome: "/home/JHEmilGustavsson/MinaRyten/Emil/Giando/reference/combined_hg38_plus_vector.fa"
+genome: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/reference/combined_hg38_plus_vector.fa"
 
 # PacBio HiFi reads (unmapped bam)
-CCS_bam: "/home/JHEmilGustavsson/MinaRyten/Emil/Giando/data/2_B01/m64045e_230304_040407.hifi_reads.bam"
+CCS_bam: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/data/2_B01/m64045e_230304_040407.hifi_reads.bam"
 
 # Options passed to minimap2:
-minimap2_opts: "--eqx -a --secondary=no"
+minimap2_opts: ""
 
-# threads (optional; default 30)
-threads: 30
+# threads (optional; default 10)
+threads: 10

@@ -22,11 +22,12 @@ properties:
 
   minimap2_opts:
     type: string
+    default: "--eqx -a --secondary=no"
     minlength: 1
 
   threads:
     type: integer
-    default: 30
+    default: 10
 
 
 required:

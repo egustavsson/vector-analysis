@@ -70,9 +70,8 @@ Create a annotation.txt file according to the following format:
 ```
 NAME=<sequence id>;TYPE={vector|helper|repcap|host|lambda};REGION=<start>-<end>;
 ```
-Only the `vector` annotation is required and must be marked with `REGION=`. All other types are optional.
+Only the `vector` annotation is required and must be marked with `REGION=`. All other types are optional. For example:
 
-For example:
 ```
 NAME=my_plasmid;TYPE=vector;REGION=100-2000;
 NAME=chr1;TYPE=host;
@@ -87,3 +86,15 @@ Combinig the host genome and the vector into a single fasta can be done by:
 ```bash
 paste host.fasta vector.fasta > combined.fasta
 ```
+
+### 2. Running the snakemake
+After generated required genomes used for mapping are generated, make sure the `config.yml` is edited. These are the parameters:
+
+| Parameter | Description |
+| --- | --- |
+| workdir | This is the working directory and should be set to `./vector-analysis/` |
+| sample_name | sample name which will be the prefix of output. Default is `Sample` |
+| genome | genome fasta that will be used to map against |
+| CCS_bam | The unmapped HiFi CCS bam file |
+| minimap2_opts | options passed to minimap2 for mapping. Default is `--eqx -a --secondary=no` |
+| threads | Number of threads to use. Default is 10 |
