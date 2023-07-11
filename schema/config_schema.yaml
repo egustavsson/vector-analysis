@@ -20,11 +20,6 @@ properties:
     type: string
     minLength: 1
 
-  minimap2_opts:
-    type: string
-    default: "--eqx -a --secondary=no"
-    minlength: 1
-
   threads:
     type: integer
     default: 10
@@ -35,4 +30,3 @@ required:
   - sample_name
   - genome
   - CCS_bam
-  - minimap2_opts

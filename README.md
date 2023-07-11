@@ -96,7 +96,6 @@ After generated required genomes used for mapping are generated, make sure the `
 | sample_name | sample name which will be the prefix of output. Default is `Sample` |
 | genome | genome fasta that will be used to map against |
 | CCS_bam | The unmapped HiFi CCS bam file |
-| minimap2_opts | options passed to minimap2 for mapping. Default is `--eqx -a --secondary=no` |
 | threads | Number of threads to use. Default is 10 |
 
 For detailed minimap2 instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html).

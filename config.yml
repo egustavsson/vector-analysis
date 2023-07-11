@@ -13,8 +13,5 @@ genome: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/reference/combine
 # PacBio HiFi reads (unmapped bam)
 CCS_bam: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/data/2_B01/m64045e_230304_040407.hifi_reads.bam"
 
-# Options passed to minimap2:
-minimap2_opts: ""
-
 # threads (optional; default 10)
-threads: 10
+threads: 100
