@@ -99,5 +99,5 @@ After generated required genomes used for mapping are generated, make sure the `
 | minimap2_opts | options passed to minimap2 for mapping. Default is `--eqx -a --secondary=no` |
 | threads | Number of threads to use. Default is 10 |
 
-For minimap2 settings detailed instructions can be found in the [manual](https://lh3.github.io/minimap2/minimap2.html).
+For detailed minimap2 instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html).
 

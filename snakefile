@@ -11,7 +11,7 @@ WORKDIR = config["workdir"]
 sample = config["sample_name"]
 
 target_list = [
-    "results/" + sample + "_minimap.sam"
+    "results/" + sample + ".bam"
 ]
 
 rule all:
@@ -25,7 +25,7 @@ rule bam_to_fasta:
         bam = config["CCS_bam"]
 
     output:
-        fa = "results/" + sample + ".fasta"
+        fa = "results/" + sample
     
     threads: config["threads"]
 
@@ -39,7 +39,7 @@ rule bam_to_fasta:
 
 rule mapping:
     input:
-        fa = rules.bam_to_fasta.output.fa,
+        fa = "results/" + sample + ".fasta",
         genome = config["genome"]
 
     output:
@@ -53,12 +53,30 @@ rule mapping:
     threads: config["threads"]
 
     shell: """
-        minimap2 {params.opts} -t {threads} {input.genome} {input.fa} |
-        samtools sort -n -@ {threads} -O SAM > {output.sam}
+        minimap2 {params.opts} -t {threads} {input.genome} {input.fa} -o {output.sam}
     """
 
 # ----------------------------------------------------------------
 
+rule sam_to_bam:
+    input: 
+        sam = rules.mapping.output.sam
+    
+    output:
+        bam = "results/" + sample + ".bam"
+    
+    log: "logs/sample_samtools.log"
+
+    threads: config["threads"]
+
+    shell: """
+        samtools sort -O SAM -o {output.bam}; 
+        samtools index {output.bam}
+
+    """
+
 
 # Sort this way to be able to index
 # samtools sort -O SAM -o ./results/sorted.sam -@ 100 ./results/test_minimap.sam
+
+# samtools sort -n -@ {threads} -O SAM > {output.sam}
