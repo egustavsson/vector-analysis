@@ -1,6 +1,6 @@
 # Vector stability analysis
 
-This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing. The first step is to create the appropriate reference for mapping that incudes the vector sequence. The rest of the steps are performed by a `snakemake` pipeline. This pipeline borrows from the [AAV](https://github.com/Magdoll/AAV) analysis by Elizabeth Tseng ([Magdoll](https://github.com/Magdoll)).
+This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing. The first step is to create the appropriate reference for mapping that incudes the vector sequence. The rest of the steps are performed by a `snakemake` pipeline. Description of the steps are found [here](#analysis-steps). This pipeline borrows from the [AAV](https://github.com/Magdoll/AAV) analysis by Elizabeth Tseng ([Magdoll](https://github.com/Magdoll)).
 
 ## Pipeline 
 
@@ -59,7 +59,7 @@ conda deactivate
 
 ## Analysis steps
 
-1. **Preparing the genome and annotation file:** 
+### 1. Preparing the genome and annotation file
 The following fasta files (if available) should be combined into a single "genome" fasta file:
 
 (required) vector (including the AAV vector + plasmid backbone as a single sequence)
