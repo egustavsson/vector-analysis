@@ -88,7 +88,7 @@ paste host.fasta vector.fasta > combined.fasta
 ```
 
 ### 2. BAM to FASTA
-PacBio HiFi reads are generally generated as an unmapped BAM file. To conver them to FAST format use this example:
+PacBio HiFi reads are generally generated as an unmapped BAM file. This only needs to be doen once regardless of reference used for mapping or other changes while mapping. To convert BAM to FASTA format use this example:
 
 ```bash
 bam2fasta -u -o out in.bam
