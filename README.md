@@ -2,14 +2,16 @@
 
 This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing. The first step is to create the appropriate reference for mapping that incudes the vector sequence. The rest of the steps are performed by a `snakemake` pipeline.
 
-## Installation
+## Pipeline 
 
-### Depedencies
+### Installation
+
+#### Depedencies
 
 - [miniconda](https://conda.io/miniconda.html)
 - The rest of the dependencies (including `snakemake`) are installed via conda through the `environment.yml` file
 
-### Installation process
+#### Installation process
 
 Clone the directory:
 
@@ -24,12 +26,12 @@ cd vector-stability
 conda env create -f environment.yml
 ```
 
-## Input
+### Input
 
 - PacBio CCS reads as unmapped BAM
 - Reference genome assembly in FASTA format. Described in the tutorial.
 
-## How to use
+### How to use
 
 Edit `config.yml` to set up the working directory and input files/directories. `snakemake` command should be issued from within the pipeline directory. Please note that before you run any of the `snakemake` commands, make sure to first activate the conda environment using the command `conda activate vector-stability`.
 
@@ -54,13 +56,6 @@ To deactivate the conda environment:
 ```bash
 conda deactivate
 ```
-
-
-
-
-
-
-## Long-read sequencing
 
 ## Analysis
 
