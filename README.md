@@ -9,7 +9,7 @@ This reposotory provides the code and describes the analysis steps for assesing 
 #### Depedencies
 
 - [miniconda](https://conda.io/miniconda.html)
-- The rest of the dependencies (including `snakemake`) are installed via conda through the `environment.yml` file
+- The rest of the dependencies (including `snakemake`) are installed via conda through the `environment.yml` file. This includes the tools used for all analysis steps.
 
 #### Installation process
 
@@ -94,7 +94,7 @@ PacBio HiFi reads are generally generated as an unmapped BAM file. To conver the
 bam2fasta -u -o out in.bam
 ```
 
-### 2. Mapping reads
+### 3. Mapping reads
 After required genomes references  and FASTA input are, make sure the `config.yml` is edited. These are the parameters:
 
 | Parameter | Description |
