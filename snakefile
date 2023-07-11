@@ -39,7 +39,7 @@ rule bam_to_fasta:
 
 rule mapping:
     input:
-        fa = "results/" + sample + ".fasta" + ".fasta", # need to add this as bam2fasta add a suffix
+        fa = "results/" + sample + ".fasta",
         genome = config["genome"]
 
     output:
