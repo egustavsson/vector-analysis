@@ -63,7 +63,8 @@ conda deactivate
 The following fasta files (if available) should be combined into a single "genome" fasta file:
 - vector (including the vector + plasmid backbone as a single sequence)
 - host genome (ex: hg38)
-NOTE the sequence IDs should be free of blank spaces and symbols. Stick with numbers, alphabet letters, and _ and -. If necessary, rename the sequence IDs in the combined fasta file.
+
+*NOTE* the sequence IDs should be free of blank spaces and symbols. Stick with numbers, alphabet letters, and _ and -. If necessary, rename the sequence IDs in the combined fasta file.
 
 Create a annotation.txt file according to the following format:
 ```
