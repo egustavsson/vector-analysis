@@ -61,15 +61,15 @@ conda deactivate
 
 ### 1. Preparing the genome and annotation file
 The following fasta files (if available) should be combined into a single "genome" fasta file:
-- (required) vector (including the vector + plasmid backbone as a single sequence)
+- vector (including the vector + plasmid backbone as a single sequence)
 - host genome (ex: hg38)
 NOTE the sequence IDs should be free of blank spaces and symbols. Stick with numbers, alphabet letters, and _ and -. If necessary, rename the sequence IDs in the combined fasta file.
 
 Create a annotation.txt file according to the following format:
-
+```
 NAME=<sequence id>;TYPE={vector|helper|repcap|host|lambda};REGION=<start>-<end>;
+```
 Only the vector annotation is required and must be marked with REGION= (the position from ITR to ITR) as well. All other types are optional.
-
 For example:
 
 NAME=myAAV_plasmid;TYPE=vector;REGION=100-2000;
