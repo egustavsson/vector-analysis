@@ -28,7 +28,7 @@ conda env create -f environment.yml
 
 ### Input
 
-- PacBio CCS reads as unmapped BAM
+- PacBio CCS reads in FASTA format.
 - Reference genome assembly in FASTA format. Described in the analysis [tutorial](#1-preparing-the-genome-and-annotation-file).
 
 ### How to use
@@ -87,15 +87,22 @@ Combinig the host genome and the vector into a single fasta can be done by:
 paste host.fasta vector.fasta > combined.fasta
 ```
 
-### 2. Running the snakemake
-After generated required genomes used for mapping are generated, make sure the `config.yml` is edited. These are the parameters:
+### 2. BAM to FASTA
+PacBio HiFi reads are generally generated as an unmapped BAM file. To conver them to FAST format use this example:
+
+```bash
+bam2fasta -u -o out in.bam
+```
+
+### 2. Mapping reads
+After required genomes references  and FASTA input are, make sure the `config.yml` is edited. These are the parameters:
 
 | Parameter | Description |
 | --- | --- |
 | workdir | This is the working directory and should be set to `./vector-analysis/` |
 | sample_name | sample name which will be the prefix of output. Default is `Sample` |
 | genome | genome fasta that will be used to map against |
-| CCS_bam | The unmapped HiFi CCS bam file |
+| CCS_fasta | The HiFi CCS fasta file |
 | threads | Number of threads to use. Default is 10 |
 
 For detailed minimap2 instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html).

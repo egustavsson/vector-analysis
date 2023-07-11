@@ -25,26 +25,9 @@ rule all:
 
 # ----------------------------------------------------------------
 
-rule bam_to_fasta:
-    input:
-        bam = config["CCS_bam"]
-
-    output:
-        fa = "results/" + sample + ".fasta"
-    
-    threads: config["threads"]
-
-    log: "logs/sample_bam_to_fasta.log"
-
-    shell: """
-        bam2fasta -u -o {output.fa} {input.bam} 2> {log}
-    """
-
-# ----------------------------------------------------------------
-
 rule mapping:
     input:
-        fa = "results/" + sample + ".fasta" + ".fasta",
+        fa = config["CCS_fasta"],
         genome = config["genome"]
 
     output:

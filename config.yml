@@ -5,16 +5,16 @@
 pipeline: "vector-analysis"
 
 # working directory (required):
-workdir: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/"
+workdir: ""
 
 # prefix of all output files:
-sample_name: "test"
+sample_name: ""
 
 # reference genome as fasta (required)
-genome: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/reference/custom_ref.fa"
+genome: ""
 
-# PacBio HiFi reads (unmapped bam)
-CCS_bam: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/data/2_B01/m64045e_230304_040407.hifi_reads.bam"
+# PacBio HiFi reads (as FASTA)
+CCS_fasta: ""
 
 # threads (optional; default 10)
 threads: 100

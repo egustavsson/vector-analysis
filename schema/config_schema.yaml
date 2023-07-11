@@ -21,7 +21,7 @@ properties:
     type: string
     minLength: 1
 
-  CCS_bam:
+  CCS_fasta:
     type: string
     minLength: 1
 
@@ -34,4 +34,4 @@ required:
   - workdir
   - sample_name
   - genome
-  - CCS_bam
+  - CCS_fasta
