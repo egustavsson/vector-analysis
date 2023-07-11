@@ -25,21 +25,21 @@ rule bam_to_fasta:
         bam = config["CCS_bam"]
 
     output:
-        fa = temp("results/" + sample + ".fasta")
+        fa = "results/" + sample + ".fasta"
     
     threads: config["threads"]
 
     log: "logs/sample_bam_to_fasta.log"
 
     shell: """
-        bam2fasta -u -o {output.fasta} {input.bam} 2> {log}
+        bam2fasta -u -o {output.fa} {input.bam} 2> {log}
     """
 
 # ----------------------------------------------------------------
 
 rule mapping:
     input:
-        fa = "results/" + sample + ".fasta.fasta",
+        fa = "results/" + sample + ".fasta" + ".fasta", # need to add this as bam2fasta add a suffix
         genome = config["genome"]
 
     output:
@@ -67,12 +67,7 @@ rule sam_to_bam:
     threads: config["threads"]
 
     shell: """
-        samtools sort -O BAM -o {output.bam} -@ {threads} {input.sam}
+        samtools sort -O BAM -o {output.bam} -@ {threads} {input.sam};
+        samtools index {output.bam}
 
     """
-
-
-# Sort this way to be able to index
-# samtools sort -O SAM -o ./results/sorted.sam -@ 100 ./results/test_minimap.sam
-
-# samtools sort -n -@ {threads} -O SAM > {output.sam}
