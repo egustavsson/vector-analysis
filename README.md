@@ -1,6 +1,6 @@
 # Vector stability analysis
 
-This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing.
+This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing. The first step is to create the appropriate reference for mapping that incudes the vector sequence. The rest of the steps are performed by a `snakemake` pipeline.
 
 ## Installation
 
