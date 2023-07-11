@@ -99,7 +99,7 @@ After required genomes references  and FASTA input are, make sure the `config.ym
 
 | Parameter | Description |
 | --- | --- |
-| workdir | This is the working directory and should be set to `./vector-analysis/` |
+| workdir | Set path to working directory |
 | sample_name | sample name which will be the prefix of output. Default is `Sample` |
 | genome | genome fasta that will be used to map against |
 | CCS_fasta | The HiFi CCS fasta file |

@@ -5,16 +5,16 @@
 pipeline: "vector-analysis"
 
 # working directory (required):
-workdir: "workdir"
+workdir: "path/to/workdir"
 
 # prefix of all output files:
 sample_name: "sample"
 
 # reference genome as fasta (required)
-genome: "ref.fa"
+genome: "path/to/ref.fa"
 
 # PacBio HiFi reads (as FASTA)
-CCS_fasta: "CCS.fa"
+CCS_fasta: "path/to/CCS.fa"
 
 # threads (optional; default 10)
 threads: 100
