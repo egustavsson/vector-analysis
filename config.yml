@@ -1,6 +1,9 @@
 ## General pipeline parameters:
 ## For optional parameters either leave empty string ("") or comment out ("#") the parameter
 
+# Name of the pipeline:
+pipeline: "vector-analysis"
+
 # working directory (required):
 workdir: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/"
 
@@ -8,7 +11,7 @@ workdir: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/"
 sample_name: "test"
 
 # reference genome as fasta (required)
-genome: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/reference/combined_hg38_plus_vector.fa"
+genome: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/reference/custom_ref.fa"
 
 # PacBio HiFi reads (unmapped bam)
 CCS_bam: "/home/JHEmilGustavsson/MinaRyten/Emil/vector-analysis/data/2_B01/m64045e_230304_040407.hifi_reads.bam"

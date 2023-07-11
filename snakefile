@@ -1,4 +1,6 @@
-from snakemake.utils import min_version, validate
+from os import path
+from snakemake.utils import validate
+from snakemake.utils import min_version
 
 min_version("7.18")
 
@@ -6,7 +8,10 @@ min_version("7.18")
 
 configfile: "config.yml"
 validate(config, schema="schema/config_schema.yaml")
-WORKDIR = config["workdir"]
+workdir: path.join(config["workdir"], config["pipeline"])
+
+WORKDIR = path.join(config["workdir"], config["pipeline"])
+SNAKEDIR = path.dirname(workflow.snakefile)
 
 sample = config["sample_name"]
 
@@ -39,7 +44,7 @@ rule bam_to_fasta:
 
 rule mapping:
     input:
-        fa = "results/" + sample + ".fasta",
+        fa = "results/" + sample + ".fasta" + ".fasta",
         genome = config["genome"]
 
     output:
