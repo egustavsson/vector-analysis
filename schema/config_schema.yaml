@@ -18,7 +18,11 @@ properties:
 
   CCS_bam:
     type: string
-    default: ""
+    minLength: 1
+
+  minimap2_opts:
+    type: string
+    minlength: 1
 
   threads:
     type: integer
@@ -30,3 +34,4 @@ required:
   - sample_name
   - genome
   - CCS_bam
+  - minimap2_opts

@@ -16,28 +16,28 @@ This reposotory provides the code and describes the analysis steps for assesing 
 Clone the directory:
 
 ```bash
-git clone --recursive https://github.com/egustavsson/vector-stability.git
+git clone --recursive https://github.com/egustavsson/vector-analysis.git
 ```
 
 Create conda environment for the pipeline which will install all the dependencies:
 
 ```bash
-cd vector-stability
+cd vector-analysis
 conda env create -f environment.yml
 ```
 
 ### Input
 
 - PacBio CCS reads as unmapped BAM
-- Reference genome assembly in FASTA format. Described in the tutorial.
+- Reference genome assembly in FASTA format. Described in the analysis [tutorial](#1-preparing-the-genome-and-annotation-file).
 
 ### How to use
 
-Edit `config.yml` to set up the working directory and input files/directories. `snakemake` command should be issued from within the pipeline directory. Please note that before you run any of the `snakemake` commands, make sure to first activate the conda environment using the command `conda activate vector-stability`.
+Edit `config.yml` to set up the working directory and input files/directories. `snakemake` command should be issued from within the pipeline directory. Please note that before you run any of the `snakemake` commands, make sure to first activate the conda environment using the command `conda activate vector-analysis`.
 
 ```bash
-cd vector-stability
-conda activate vector-stability
+cd vector-analysis
+conda activate vector-analysis
 snakemake --use-conda -j <num_cores> all
 ```
 It is a good idea to do a dry run (using -n parameter) to view what would be done by the pipeline before executing the pipeline.
@@ -61,9 +61,8 @@ conda deactivate
 
 ### 1. Preparing the genome and annotation file
 The following fasta files (if available) should be combined into a single "genome" fasta file:
-
-(required) vector (including the AAV vector + plasmid backbone as a single sequence)
-host genome (ex: hg38)
+- (required) vector (including the vector + plasmid backbone as a single sequence)
+- host genome (ex: hg38)
 NOTE the sequence IDs should be free of blank spaces and symbols. Stick with numbers, alphabet letters, and _ and -. If necessary, rename the sequence IDs in the combined fasta file.
 
 Create a annotation.txt file according to the following format:
