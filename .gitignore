@@ -1,4 +1,4 @@
 .snakemake
-data/
-reference/
-results/
+data/*
+reference/*
+results/*
