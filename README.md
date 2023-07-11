@@ -2,6 +2,64 @@
 
 This reposotory provides the code and describes the analysis steps for assesing vector stability and integration using long-read sequencing.
 
+## Installation
+
+### Depedencies
+
+- [miniconda](https://conda.io/miniconda.html)
+- The rest of the dependencies (including `snakemake`) are installed via conda through the `environment.yml` file
+
+### Installation process
+
+Clone the directory:
+
+```bash
+git clone --recursive https://github.com/egustavsson/vector-stability.git
+```
+
+Create conda environment for the pipeline which will install all the dependencies:
+
+```bash
+cd vector-stability
+conda env create -f environment.yml
+```
+
+## Input
+
+- PacBio CCS reads as unmapped BAM
+- Reference genome assembly in FASTA format. Described in the tutorial.
+
+## How to use
+
+Edit `config.yml` to set up the working directory and input files/directories. `snakemake` command should be issued from within the pipeline directory. Please note that before you run any of the `snakemake` commands, make sure to first activate the conda environment using the command `conda activate vector-stability`.
+
+```bash
+cd vector-stability
+conda activate vector-stability
+snakemake --use-conda -j <num_cores> all
+```
+It is a good idea to do a dry run (using -n parameter) to view what would be done by the pipeline before executing the pipeline.
+
+```bash
+snakemake --use-conda -n all
+```
+
+To exit a running `snakemake` pipeline, hit `ctrl+c` on the terminal. If the pipeline is running in the background, you can send a `TERM` signal which will stop the scheduling of new jobs and wait for all running jobs to be finished.
+
+```bash
+killall -TERM snakemake
+```
+
+To deactivate the conda environment:
+```bash
+conda deactivate
+```
+
+
+
+
+
+
 ## Long-read sequencing
 
 ## Analysis
