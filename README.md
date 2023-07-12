@@ -95,7 +95,7 @@ bam2fasta -u -o out in.bam
 ```
 
 ### 3. Mapping reads
-After required genomes references  and FASTA input are, make sure the `config.yml` is edited. These are the parameters:
+After fallowing steps 1 and 2, generating required genomes references and FASTA input are done, make sure the `config.yml` is edited. These are the parameters:
 
 | Parameter | Description |
 | --- | --- |
@@ -107,3 +107,9 @@ After required genomes references  and FASTA input are, make sure the `config.ym
 
 For detailed minimap2 instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html).
 
+The mapping step and generation of an indexed BAM file can be done by running the `snakemake` as previously descrobed:
+
+```bash
+cd vector-analysis
+snakemake --use-conda -j <num_cores> all
+```
