@@ -11,3 +11,4 @@ dependencies:
  - samtools==1.15
  - pysam
  - biopython
+ - sniffles==2.0.7

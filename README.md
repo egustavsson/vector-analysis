@@ -94,20 +94,26 @@ PacBio HiFi reads are generally generated as an unmapped BAM file. This only nee
 bam2fasta -u -o out in.bam
 ```
 
-### 3. Mapping reads
+### 3. Mapping reads and calling structural variants
 After fallowing steps 1 and 2, generating required genomes references and FASTA input are done, make sure the `config.yml` is edited. These are the parameters:
 
 | Parameter | Description |
 | --- | --- |
+| pipeline | this will be the folder with the output under the workdir |
 | workdir | Set path to working directory |
-| sample_name | sample name which will be the prefix of output. Default is `Sample` |
+| sample_name | sample name which will be the prefix of output files. Default is `Sample` |
 | genome | genome fasta that will be used to map against |
 | CCS_fasta | The HiFi CCS fasta file |
+| sniffles_opts | Optional options passed to sniffles for SV calling |
 | threads | Number of threads to use. Default is 10 |
 
-For detailed minimap2 instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html).
+Mapping is done using `minimap2`. For detailed `minimap2` instructions, see their [manual](https://lh3.github.io/minimap2/minimap2.html). Structural variants are called using `Sniffles2`. For `Sniffles2` instructions see their [github repo](https://github.com/fritzsedlazeck/Sniffles) or run:
 
-The mapping step and generation of an indexed BAM file can be done by running the `snakemake` as previously descrobed:
+```bash
+sniffles --help
+```
+
+The mapping step and SV calling is done by running the `snakemake` as previously described:
 
 ```bash
 cd vector-analysis

@@ -16,7 +16,8 @@ SNAKEDIR = path.dirname(workflow.snakefile)
 sample = config["sample_name"]
 
 target_list = [
-    "results/" + sample + ".bam"
+    "results/" + sample + ".bam",
+    "results/" + sample + ".vcf"
 ]
 
 rule all:
@@ -33,7 +34,7 @@ rule mapping:
     output:
         sam = "results/" + sample + "_minimap.sam"
     
-    log: "logs/sample_minimap.log"
+    log: "logs/" + sample + "_minimap.log"
 
     threads: config["threads"]
 
@@ -50,12 +51,31 @@ rule sam_to_bam:
     output:
         bam = "results/" + sample + ".bam"
     
-    log: "logs/sample_samtools.log"
+    log: "logs/" + sample + "_samtools.log"
 
     threads: config["threads"]
 
     shell: """
         samtools sort -O BAM -o {output.bam} -@ {threads} {input.sam};
         samtools index {output.bam}
-
     """
+
+# ----------------------------------------------------------------
+
+rule sniffles:
+    input:
+       bam = "results/" + sample + ".bam"
+    
+    output:
+        vcf = "results/" + sample + ".vcf"
+    
+    params: 
+        sn_opts = config["sniffles_opts"]
+    
+    log: "logs/" + sample + "_sniffles.log"
+
+    threads: config["threads"]
+
+    shell: """
+        sniffles -i {input.bam}  -v {output.vcf} {params.sn_opts} --threads {threads} 2> {log}
+        """
