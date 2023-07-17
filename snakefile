@@ -34,12 +34,15 @@ rule mapping:
     output:
         sam = "results/" + sample + "_minimap.sam"
     
+    params:
+        mm_opts = config["minimap_opts"]
+    
     log: "logs/" + sample + "_minimap.log"
 
     threads: config["threads"]
 
     shell: """
-        minimap2 --eqx -a --secondary=no -t {threads} {input.genome} {input.fa} -o {output.sam} 2> {log}
+        minimap2 --eqx -a {params.mm_opts} --secondary=no -t {threads} {input.genome} {input.fa} -o {output.sam} 2> {log}
     """
 
 # ----------------------------------------------------------------

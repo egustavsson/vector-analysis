@@ -24,7 +24,10 @@ properties:
   CCS_fasta:
     type: string
     minLength: 1
-  
+
+  minimap_opts:
+    type: string
+
   sniffles_opts:
     type: string
 

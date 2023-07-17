@@ -16,6 +16,9 @@ genome: "/path/to/reference.fa"
 # PacBio HiFi reads (as FASTA)
 CCS_fasta: "/path/to/hifi_reads.fa"
 
+# Options passed to minimap2 (optional):
+minimap_opts: ""
+
 # Options passed to Sniffles (optional):
 sniffles_opts: ""
 
