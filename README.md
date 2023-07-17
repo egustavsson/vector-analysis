@@ -104,6 +104,7 @@ After fallowing steps 1 and 2, generating required genomes references and FASTA 
 | sample_name | sample name which will be the prefix of output files. Default is `Sample` |
 | genome | genome fasta that will be used to map against |
 | CCS_fasta | The HiFi CCS fasta file |
+| minimap_opts | Optional options passed to minimap for minimap for mapping |
 | sniffles_opts | Optional options passed to sniffles for SV calling |
 | threads | Number of threads to use. Default is 10 |
 
